@@ -74,11 +74,11 @@ const withdrawBalance = () => {
         alert(`Importe no válido`)
         clearInput()
     } else if (withdrawal > balance){
-        alert(`No tiene suficiente saldo en su cuenta para la transacción`)
+        alert(`Saldo insuficiente para la transacción`)
         clearInput()
     }else{
         balance -= withdrawal
-        alert(`Se han retirado ${withdrawal}€ a su cuenta.`)
+        alert(`Se han retirado ${withdrawal}€ de su cuenta.`)
         updateBalance()
     }
 }
