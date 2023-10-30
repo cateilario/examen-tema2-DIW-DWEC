@@ -32,7 +32,7 @@ const logIn = () => {
         updateBalance()
     } else {
         alert(`HA SUPERADO EL NUMERO DE INTENTOS.
-                CAJERO BLOQUEADO`)
+            CAJERO BLOQUEADO`)
         location.replace("/templates/blockedATM.html")
     }
 }
@@ -125,13 +125,14 @@ const changePIN = () => {
     } else{
         let new_pin = prompt(`Introduzca su nuevo PIN`)
         valid_pin = new_pin
-        alert("Cambio de PIN exitoso")
+        alert(`Cambio de PIN exitoso. Su nuevo PIN es ${valid_pin}`)
         console.log(valid_pin)
     }
 }
 
 changePINBtn.addEventListener("click", changePIN)
 
+// Función para finalizar aplicación de cajero
 exitBtn.addEventListener("click", () => {
     location.replace("/templates/byeUser.html")
 })
