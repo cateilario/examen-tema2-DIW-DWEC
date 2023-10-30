@@ -1,3 +1,4 @@
+/* Introducimos fuente embebida */
 @font-face {
     font-family: 'IBM';
     src: url('../assets/fonts/IBMPlexMono-Regular.ttf') format('truetype'); /* Ruta al archivo de la fuente */
@@ -17,14 +18,15 @@ body{
     margin: 50px auto;
     padding: 20px;
     max-width: 600px;
-    background: linear-gradient(#747272, #b5b2b2);
+    background: #d0d0d3;
+    background: radial-gradient(circle, #dbdbdf 0%, #767374 100%);
     text-align: center;
     box-shadow: 0 0 30px black;
 }
 
 h1{
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 input{

@@ -19,7 +19,7 @@ const currentBalance = document.getElementById("balance")
 
 // Función para iniciar sesión
 const logIn = () => {
-    let pin = prompt (`Ingrese su PIN:`)
+    let pin = prompt(`Ingrese su PIN:`)
 
     while(pin !== valid_pin && attempts > 1){
         attempts--
