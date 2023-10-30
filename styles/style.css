@@ -5,21 +5,27 @@
 
 
 body{
-    background-color: #3a3838;
+    background-color: #5f5c5c;
     font-family: 'IBM';
 }
 
 .container{
     border: 10px solid #e6e3e3;
-    margin: 40px auto;
-    max-width: 500px;
+    margin: 50px auto;
+    max-width: 600px;
     background: linear-gradient(#747272, #b5b2b2);
     text-align: center;
+    box-shadow: 0 0 30px black;
+}
+
+h1{
+    font-size: 2rem;
 }
 
 input{
     padding: 10px;
     font-family: 'IBM';
+    margin-bottom: 10px;
 }
 
 .menu {
@@ -32,12 +38,12 @@ input{
 }
 
 .menu li {
-    margin: 20px 0;
+    margin: 20px;
 }
 
 .menu a {
     text-decoration: none;
-    background-color: #7e1003;
+    background-color: #911204;
     color: #fff;
     padding: 5px 30px;
     border-radius: 3px;
