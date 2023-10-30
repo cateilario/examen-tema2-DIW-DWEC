@@ -43,11 +43,13 @@ window.addEventListener("load", logIn)
 const updateBalance = () => {
     currentBalance.innerText = `${balance.toFixed(2)}€`
     amount.value = ""
+    amount.focus()
 }
 
 // Función para resetear input
 const clearInput = () =>{
     amount.value = "";
+    amount.focus()
 }
 
 // Función para ingresar saldo
@@ -59,7 +61,7 @@ const depositBalance = () => {
         clearInput()
     } else {
         balance += deposit;
-        alert(`Se han ingresado ${deposit}€ a su cuenta.`)
+        alert(`Se han ingresado ${deposit}€ en su cuenta.`)
         updateBalance()
     }
 }
