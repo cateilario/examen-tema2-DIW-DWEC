@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color: #5f5c5c;
+    background-color: #999595;
     font-family: 'IBM';
 }
 
@@ -70,7 +70,7 @@ input{
 }
 
 footer {
-    background-color: #848383;
+    background-color: #5d5b5b;
     color: #fff;
     text-align: center;
     width: 100%;

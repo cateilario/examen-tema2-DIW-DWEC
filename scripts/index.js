@@ -3,12 +3,12 @@
  * GitHub: 
  */
 
-// Creamos variables globales
+// Declaramos variables globales
 let attempts = 3;
 let balance = 1100.50;
 let valid_pin = "1234"
 
-// Enlazamos HTML y JavaScript
+// Enlazamos HTML con JavaScript mediante elementos
 const amount = document.getElementById("amount")
 const depositBtn = document.getElementById("deposit")
 const withdrawBtn = document.getElementById("withdraw")
