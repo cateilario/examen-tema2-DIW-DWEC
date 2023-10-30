@@ -1,4 +1,4 @@
-/* Introducimos fuente embebida. Le damos un nombre y enlazamos la ruta*/
+/* Introducimos fuente inyectada. Le damos un nombre y enlazamos la ruta*/
 @font-face {
     font-family: 'IBM';
     src: url('../assets/fonts/IBMPlexMono-Regular.ttf') format('truetype'); /* Ruta al archivo de la fuente */
