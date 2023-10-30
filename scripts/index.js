@@ -41,11 +41,16 @@ const updateBalance = () => {
     amount.value = ""
 }
 
+const clearInput = () =>{
+    amount.value = "";
+}
+
 const depositBalance = () => {
     const deposit = parseFloat(amount.value)
 
     if(isNaN(deposit) || deposit <= 0){
         alert(`Importe no válido`)
+        clearInput()
     } else {
         balance += deposit;
         alert(`Se han ingresado ${deposit}€ a su cuenta.`)
@@ -58,13 +63,39 @@ depositBtn.addEventListener("click", depositBalance)
 const withdrawBalance = () => {
     const withdrawal = parseFloat(amount.value)
 
-    if(isNaN(deposit) || deposit <= 0){
+    if(isNaN(withdrawal) || withdrawal <= 0){
         alert(`Importe no válido`)
-    } else {
-        balance += deposit;
-        alert(`Se han ingresado ${deposit}€ a su cuenta.`)
+        clearInput()
+    } else if (withdrawal > balance){
+        alert(`No tiene suficiente saldo en su cuenta para la transacción`)
+        clearInput()
+    }else{
+        balance -= withdrawal
+        alert(`Se han retirado ${withdrawal}€ a su cuenta.`)
         updateBalance()
     }
 }
 
-depositBtn.addEventListener("click", depositBalance)
+withdrawBtn.addEventListener("click", withdrawBalance)
+
+
+
+const transferBalance = () => {
+    const transfer = parseFloat(amount.value)
+    const targetIBAN = prompt(`Ingrese número de cuenta bancaria:`)
+
+    if(isNaN(transfer) || transfer <= 0){
+        alert(`Importe no válido`)
+        clearInput()
+    } else if (transfer > balance){
+        alert(`No tiene suficiente saldo para la transacción`)
+        clearInput()
+    }else{
+        if(validateIBAN(targetIBAN))
+        balance -= transfer
+        alert(`Se han tranferido ${transfer}€ a la cuenta ${targetIBAN}.`)
+        updateBalance()
+    }
+}
+
+transferBtn.addEventListener("click", transferBalance)
