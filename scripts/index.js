@@ -121,9 +121,9 @@ const changePIN = () => {
     let pin = prompt(`Confirme su PIN actual:`)
 
     if(pin !== valid_pin){
-        alert(`PIN incorrecto`)
+        alert(`PIN incorrecto. No se ha realizado ningún cambio.`)
     } else{
-        let new_pin = prompt(`Introduzca su nuevo PIN`)
+        let new_pin = prompt(`Introduzca su nuevo PIN:`)
         valid_pin = new_pin
         alert(`Cambio de PIN exitoso. Su nuevo PIN es ${valid_pin}`)
         console.log(valid_pin)
