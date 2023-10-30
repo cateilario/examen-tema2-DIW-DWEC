@@ -31,8 +31,7 @@ const logIn = () => {
         alert('Acceso concedido')
         updateBalance()
     } else {
-        alert(`HA SUPERADO EL NUMERO DE INTENTOS.
-            CAJERO BLOQUEADO`)
+        alert(`HA SUPERADO EL NUMERO DE INTENTOS. CAJERO BLOQUEADO`)
         location.replace("/templates/blockedATM.html")
     }
 }
