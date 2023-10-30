@@ -19,24 +19,25 @@ const currentBalance = document.getElementById("balance")
 
 // Función para iniciar sesión
 const logIn = () => {
-    let pin = prompt(`Introduzca su PIN`)
+    let pin = prompt (`Ingrese su PIN:`)
 
-    while (pin !== valid_pin && attempts > 1){
-        attempts--;
-        alert(`PIN incorrecto. Intentos restantes: ${attempts}`)
-        prompt (`Introduzca PIN válido:`)
-        return
-    } 
-    location.replace("/templates/blockedATM.html")
+    while(pin !== valid_pin && attempts > 1){
+        attempts--
+        alert(`PIN incorrecto! Intentos restantes: ${attempts}`)
+        pin = prompt(`Ingrese su PIN:`)
+    }
 
     if(pin === valid_pin){
-        alert(`Inicio de sesión exitoso. Bienvenido.`)
-    } else{
+        alert('Acceso concedido')
+        updateBalance()
+    } else {
+        alert(`HA SUPERADO EL NUMERO DE INTENTOS.
+                CAJERO BLOQUEADO`)
         location.replace("/templates/blockedATM.html")
     }
 }
 
-//window.addEventListener("load", logIn)
+window.addEventListener("load", logIn)
 
 // Función para actualizar saldo
 const updateBalance = () => {
@@ -85,8 +86,9 @@ const withdrawBalance = () => {
 withdrawBtn.addEventListener("click", withdrawBalance)
 
 // Función para validar cuenta bancaria
-const validateIBAN = iban =>{
-    let regExp = "/^(ES)\d{22}$/"
+const validateIBAN = (iban) => {
+    let regEx = /^(ES\d{22})$/
+    return regEx.test(iban)
 }
 
 // Función para realizar transferencia
@@ -94,17 +96,20 @@ const transferBalance = () => {
     const transfer = parseFloat(amount.value)
 
     if(isNaN(transfer) || transfer <= 0){
-        alert(`Importe no válido`)
+        alert(`Cantidad no válida. Inténtelo de nuevo`)
         clearInput()
     } else if (transfer > balance){
-        alert(`No tiene suficiente saldo para la transacción`)
+        alert(`Saldo insuficiente para la transacción.`)
         clearInput()
-    }else{
-        targetIBAN = prompt(`Ingrese número de cuenta bancaria:`)
-
-        if(validateIBAN(targetIBAN))
+    } else {
+        targetIBAN = prompt(`Ingrese el número de cuenta de destino:`)
+        if(!validateIBAN(targetIBAN)){
+            alert(`El IBAN introducido es incorrecto.`)
+            clearInput()
+            return
+        }
         balance -= transfer
-        alert(`Se han tranferido ${transfer}€ a la cuenta ${targetIBAN}.`)
+        alert(`Se han transferido ${transfer}€ a la cuenta ${targetIBAN}`)
         updateBalance()
     }
 }
@@ -121,9 +126,12 @@ const changePIN = () => {
         let new_pin = prompt(`Introduzca su nuevo PIN`)
         valid_pin = new_pin
         alert("Cambio de PIN exitoso")
+        console.log(valid_pin)
     }
 }
 
 changePINBtn.addEventListener("click", changePIN)
 
-
+exitBtn.addEventListener("click", () => {
+    location.replace("/templates/byeUser.html")
+})
